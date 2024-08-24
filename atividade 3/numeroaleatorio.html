@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 a 100</title>
+</head>
+
+<body>
+    <h1> Advinhe o números de 1 a 100</h1>
+    <input type="number" id="chute" placeholder="Chute um número" min="1" max="100">
+    <button onclick="verificarChute()">Verificar</button>
+    <script>
+        let numero = Math.floor(Math.random() * 100) + 1; //pega um numero real aleatorio e o arredonda (deixando ele inteiro)
+        let chute = 0; //número que chutou
+        let tentativas = 0; //quantidade de chutes
+
+        function verificarChute() { //função para verificar
+            tentativas++; //incremento de tentativa
+            let chuteDigitado = parseInt(document.getElementById('chute').value); //torna o número chutado inteiro
+
+            if (chuteDigitado === numero) { //caso tenha chutado corretamente
+                alert('Parabéns! Você acertou em ' + tentativas + ' tentativa(s).');
+                document.getElementById('chute').disabled = true; //"reset" do número após acerto 
+            } else if (chuteDigitado < numero) { //caso tenha chutado menor que o numero para advinhar
+                alert('Chute muito baixo!');
+            } else {
+                alert('Chute muito alto!'); //caso tenha chutado maior que o numero para advinhar
+            }
+
+            document.getElementById('chute').value = ''; //numero advinhado
+        }
+    </script>
+
+</body>
+
+</html>

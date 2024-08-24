@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora básica</title>
+</head>
+
+<body>
+    <h1>Calculadora básica</h1>
+    <form>
+        <label for="num1">Número 1:</label>
+        <input type="number" id="num1" name="num1" required>
+        <label for="num2">Número 2:</label>
+        <input type="number" id="num2" name="num2" required>
+        <select id="operacao" name="operacao"></select>
+        <button type="submit">Calcular</button>
+        <p id="result"></p>
+        <script>
+            const selectOperacao = document.getElementById('operacao');
+            for (let i = 0; i < 4; i++) {
+                const option = document.createElement('option');
+                option.value = i + 1;
+                option.textContent = ['Soma', 'Subtração', 'Multiplicação', 'Divisão'][i]; //operações
+                selectOperacao.appendChild(option);
+            }
+            document.querySelector('form').addEventListener('submit', function (event) { //sair resultado da operação
+                event.preventDefault();
+                const num1 = parseFloat(document.getElementById('num1').value); //pega o primeiro número 
+                const num2 = parseFloat(document.getElementById('num2').value); //pega o segundo número
+                const operacao = parseInt(document.getElementById('operacao').value); //mostra o resultado da operação sendo um número inteiro
+                let result;
+                switch (operacao) {
+                    case 1: //soma
+                        result = num1 + num2;
+                        break;
+                    case 2: //subtração
+                        result = num1 - num2;
+                        break;
+                    case 3: //multiplicação
+                        result = num1 * num2;
+                        break;
+                    case 4: //divisão
+                        if (num2 === 0) { //informando que não é possivel dividir por 0
+                            alert('Não é possível dividir por zero!');
+                            return;
+                        }
+                        result = num1 / num2;
+                        break;
+                }
+                document.getElementById('result').textContent = `Resultado: ${result}`; //resultado do calculo
+            });
+        </script>
+
+</body>
+
+</html>
