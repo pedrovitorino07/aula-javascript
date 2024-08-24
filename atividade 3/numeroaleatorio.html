@@ -5,31 +5,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1 a 100</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #141414;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            width: 150px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 
 <body>
-    <h1> Advinhe o números de 1 a 100</h1>
-    <input type="number" id="chute" placeholder="Chute um número" min="1" max="100">
-    <button onclick="verificarChute()">Verificar</button>
+    <div class="container">
+        <h1>Advinhe o número de 1 a 100</h1>
+
+        <input type="number" id="chute" placeholder="Chute um número" min="1" max="100">
+        <button onclick="verificarChute()">Verificar</button>
+    </div>
+
     <script>
-        let numero = Math.floor(Math.random() * 100) + 1; //pega um numero real aleatorio e o arredonda (deixando ele inteiro)
-        let chute = 0; //número que chutou
-        let tentativas = 0; //quantidade de chutes
+        let numero = Math.floor(Math.random() * 100) + 1; // Pega um número real aleatório e o arredonda (deixando-o inteiro)
+        let tentativas = 0; // Quantidade de chutes
 
-        function verificarChute() { //função para verificar
-            tentativas++; //incremento de tentativa
-            let chuteDigitado = parseInt(document.getElementById('chute').value); //torna o número chutado inteiro
+        function verificarChute() { // Função para verificar o chute
+            tentativas++; // Incremento de tentativa
+            let chuteDigitado = parseInt(document.getElementById('chute').value); // Torna o número chutado inteiro
 
-            if (chuteDigitado === numero) { //caso tenha chutado corretamente
+            if (chuteDigitado === numero) { // Caso tenha chutado corretamente
                 alert('Parabéns! Você acertou em ' + tentativas + ' tentativa(s).');
-                document.getElementById('chute').disabled = true; //"reset" do número após acerto 
-            } else if (chuteDigitado < numero) { //caso tenha chutado menor que o numero para advinhar
+                document.getElementById('chute').disabled = true; // Desabilita o campo de entrada após o acerto
+            } else if (chuteDigitado < numero) { // Caso tenha chutado menor que o número para advinhar
                 alert('Chute muito baixo!');
-            } else {
-                alert('Chute muito alto!'); //caso tenha chutado maior que o numero para advinhar
+            } else { // Caso tenha chutado maior que o número para advinhar
+                alert('Chute muito alto!');
             }
 
-            document.getElementById('chute').value = ''; //numero advinhado
+            document.getElementById('chute').value = ''; // Limpa o campo de entrada para o próximo chute
         }
     </script>
 
