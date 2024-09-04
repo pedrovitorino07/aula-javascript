@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    /* % = total, vh = depende do tamanho do monitor, px = tamanho fixo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    margin: 0 auto;
+    /* margem */
+    width: 800px;
+    /* largura */
+    height: 600px;
+    /* altura */
+    overflow: hidden;
+    /* sobrepor */
+}
+
+.slides {
+    width: 400%;
+    height: 400px;
+    display: flex;
+    /* felxibilidade da tela */
+}
+
+.slide {
+    width: 20%;
+    position: relative;
+    /* posição relatiava */
+    transition: 2s;
+    /* transição da imagem */
+}
+
+/* manipula o tamanho da imagem dentro da div */
+.slide img {
+    width: 600px;
+    height: 450px;
+}
+
+.slides input {
+    display: none;
+    /* esconde o elemento da tela */
+}
+
+.manual-navigation {
+    position: absolute;
+    /* deixa de forma absoluta na tela, acima de qualquer elemento */
+    width: 800px;
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-manual {
+    border: 2px solid rgb(8, 8, 8);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btn-manual:not(:last-child) {
+    margin-right: 20px;
+}
+
+.btn-manual:hover {
+    background-color: rgb(194, 20, 150);
+}
+
+#radio1:checked ~ .primeiro {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .primeiro {
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .primeiro {
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .primeiro {
+    margin-left: -60%;
+}
+
+#radio5:checked ~ .primeiro {
+    margin-left: -80%;
+}
