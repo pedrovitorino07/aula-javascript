@@ -7,7 +7,7 @@ let resultado = (nota1 + nota2 + nota3 + nota4) / 4 //formula para obter media
 if (resultado >= 7) { //caso media maior ou igual a 7
     console.log("Ta aprovado!")
 } else if (resultado < 7 || resultado >= 5) { //caso media maior que 5 
-    console.log("Ta de recuperação pirraia!")
+    console.log("Ta de recuperação boy!")
 } else { //caso media menor que 5
     console.log("Reprovou otarioKKKKKKKK")
 }

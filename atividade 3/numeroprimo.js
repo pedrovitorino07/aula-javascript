@@ -1,4 +1,4 @@
-let i = 3; //valor escolhido
+let i = 99; //valor escolhido
 
 if (i == 2 || i % 2 !== 0) { //verificar se o numero é primo, verificando se eh 2 ou se não eh divisivel por 2
     console.log(`O numero ${i} é primo`) //se for primo
