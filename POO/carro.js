@@ -15,5 +15,5 @@ class Carro {
 const meuCarro = new Carro('Toyota', 'Corolla');
 console.log(meuCarro.detalhes());
 
-const meuCarro2 = new Carro('Chevrolet', 'Mustang');
+const meuCarro2 = new Carro('Ford', 'Mustang');
 console.log(meuCarro2.detalhes2());
